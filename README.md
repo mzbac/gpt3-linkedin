@@ -4,8 +4,11 @@ A Chrome extension integrated with the OpenAI API for LinkedIn web.
 
 ## Installation
 
-- Build the extension
-- Add the extension to Chrome via load unpacked extension
+- Download `chrome.zip` from [Releases](https://github.com/mzbac/gpt3-linkedin/releases)
+- Unzip the file
+- In Chrome/Edge go to the extensions page (`chrome://extensions` or `edge://extensions`).
+- Enable Developer Mode.
+- Drag the unzipped folder anywhere on the page to import it (do not delete the folder afterwards).
 - Get your API key from OpenAI's website: <https://openai.com/api/>
 - Click on the extension icon.
 - Paste your key and save.
