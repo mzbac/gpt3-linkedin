@@ -1,0 +1,28 @@
+{
+  "name": "GPT3-linkedin",
+  "description": "GPT-3 for linkedin web",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "icons": { "128": "images/logo-128.png" },
+  "permissions": ["tabs", "storage"],
+  "host_permissions": ["*://*.linkedin.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.linkedin.com/*"],
+      "css": ["content.css"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/correct.png", "images/generate.png"],
+      "matches": ["*://*.linkedin.com/*"]
+    }
+  ]
+}
