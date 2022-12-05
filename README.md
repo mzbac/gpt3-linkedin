@@ -9,7 +9,7 @@ A Chrome extension integrated with the OpenAI API for LinkedIn web.
 - In Chrome/Edge go to the extensions page (`chrome://extensions` or `edge://extensions`).
 - Enable Developer Mode.
 - Drag the unzipped folder anywhere on the page to import it (do not delete the folder afterwards).
-- Get your API key from OpenAI's website: <https://openai.com/api/>
+- Get your API key from OpenAI's website: <https://beta.openai.com/account/api-keys>
 - Click on the extension icon.
 - Paste your key and save.
 - Open Linkedin in your browser and enjoy.
