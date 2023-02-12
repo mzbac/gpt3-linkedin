@@ -8,6 +8,7 @@ const __spt3__element_store = (function () {
     get: () => LAST_ACTIVE_EL,
   };
 })();
+
 const __spt3__buttons_store = (function () {
   const buttons: HTMLButtonElement[] = [];
   return {
