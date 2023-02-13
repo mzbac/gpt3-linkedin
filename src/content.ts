@@ -1,13 +1,17 @@
 import { PubSub } from "./pubsub";
 const pubSub = new PubSub();
-const __spt3__element_store = (function () {
-  let LAST_ACTIVE_EL: HTMLDivElement;
+namespace __spt3__element_store {
+  export let lastActiveElement: HTMLDivElement;
 
-  return {
-    set: (elm: HTMLDivElement) => (LAST_ACTIVE_EL = elm),
-    get: () => LAST_ACTIVE_EL,
-  };
-})();
+  export function set(elm: HTMLDivElement) {
+    lastActiveElement = elm;
+  }
+
+  export function get() {
+    return lastActiveElement;
+  }
+}
+
 const __spt3__buttons_store = (function () {
   const buttons: HTMLButtonElement[] = [];
   return {
@@ -68,12 +72,18 @@ pubSub.subscribe("create-buttons", (parent: HTMLDivElement) => {
 
     // Add onclick event
     button.addEventListener("click", () => {
-      const text = _extractText(parent);
-      const promptPrefix =
-        image === "correct" ? "Correct this to standard English:\n\n" : "\n\n";
-      parent.focus();
-      _setButtonLoading();
-      chrome.runtime.sendMessage({ text: promptPrefix + text });
+      try {
+        const text = _extractText(parent);
+        const promptPrefix =
+          image === "correct"
+            ? "Correct this to standard English:\n\n"
+            : "\n\n";
+        parent.focus();
+        _setButtonLoading();
+        chrome.runtime.sendMessage({ text: promptPrefix + text });
+      } catch (error) {
+        console.error(error);
+      }
     });
 
     // Append button to parent of input
